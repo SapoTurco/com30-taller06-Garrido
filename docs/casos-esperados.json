@@ -1,0 +1,11 @@
+[
+  {"caso":"C1","accion":"Escribir motor y esperar","ids":[1,2,3,4,5,6,7],"llamadas":1},
+  {"caso":"C2","accion":"Cambiar a motor principal y esperar","ids":[1,2,3],"llamadas":2},
+  {"caso":"C3","accion":"Cambiar a bomba y esperar","ids":[8,9,10,11],"llamadas":3},
+  {"caso":"C4","accion":"Agregar un espacio final a bomba y esperar","ids":[8,9,10,11],"llamadas":3},
+  {"caso":"C5","accion":"Escribir x","ids":[],"llamadas":3,"mensaje":"Escribe mínimo 2 caracteres para buscar."},
+  {"caso":"C6","accion":"Escribir zzz y esperar","ids":[],"llamadas":4,"mensaje":"Sin coincidencias"},
+  {"caso":"C7","accion":"Escribir motor y aplicar cada filtro; volver a Todos","ids":[1,2,3,4,5,6,7],"llamadas":5,"estados":{"Pendiente":[1,4,7],"En proceso":[2,5],"Finalizada":[3,6]}},
+  {"caso":"C8","accion":"Escribir válvula letra por letra cada 60 ms","ids":[12],"llamadas":6},
+  {"caso":"C9","accion":"Borrar; escribir mo, esperar 400 ms y completar motor en menos de 300 ms; esperar ambas respuestas","ids":[1,2,3,4,5,6,7],"llamadas":8,"anteriorIds":[1,2,3,4,5,6,7,8,9],"historial":["motor","mo","válvula","motor","zzz"]}
+]

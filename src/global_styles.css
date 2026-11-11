@@ -58,3 +58,27 @@ footer{border-color:var(--line)}
 
 
 .brand-mark,.hero h1,.panel h2,.summary-card h2,.orders-heading h2,.summary-number,.deferred-card h3,.count-pill,.empty-orders h3{font-family:inherit}
+
+/* Taller 07: buscador integrado al diseño del Taller 06. */
+.search-panel{background:#fff;border:1px solid var(--line);border-top:4px solid var(--yellow);border-radius:5px;padding:26px;margin-bottom:28px}
+.search-panel .orders-heading{margin-bottom:22px;gap:16px}
+.search-panel h2{font-size:21px}
+.search-controls{display:grid;grid-template-columns:minmax(0,2fr) minmax(170px,1fr);gap:20px}
+.search-controls .field label{font-size:13px}
+.search-controls .field input,.search-controls .field select{height:44px;font-size:14px}
+.search-controls small{color:#595959;font-size:12px;line-height:1.5;margin-top:7px}
+.search-status{min-height:44px;padding:14px 0;font-size:14px;color:var(--navy)}
+.search-summary{display:flex;flex-wrap:wrap;gap:12px 22px;padding:13px 15px;background:#f1f3f8;font-size:13px;margin:3px 0 18px;border-radius:4px}
+.results-wrap{overflow-x:auto}
+.results-table{width:100%;border-collapse:collapse;font-size:13px;line-height:1.5}
+.results-table caption{text-align:left;font-weight:600;padding-bottom:10px}
+.results-table th{text-align:left;background:var(--navy);color:#fff;padding:12px}
+.results-table td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
+.results-table tbody tr:nth-child(even){background:#f7f8fb}
+.results-table th:first-child{width:55px}.results-table td:nth-child(2){white-space:nowrap}
+.search-empty{text-align:center;padding:25px!important;color:#595959}
+.search-history{margin-top:22px}.search-history h3{font-size:14px;margin:0 0 10px}
+.search-history ol{display:flex;gap:10px;flex-wrap:wrap;list-style-position:inside;padding:0;margin:0}
+.search-history li{background:#eef0f5;border-radius:4px;padding:8px 12px;font-size:13px}
+.history-empty{list-style:none;color:#595959}
+@media(max-width:650px){.search-panel{padding:18px 14px}.search-controls{grid-template-columns:1fr;gap:16px}.search-panel h2{font-size:19px}.results-table{min-width:760px}.search-summary{gap:10px 15px}}
