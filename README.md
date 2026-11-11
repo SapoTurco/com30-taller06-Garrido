@@ -33,16 +33,7 @@ C9: escribir `mo`, esperar 400 ms y completar `motor` en menos de 300 ms. `mo` c
 
 También se verificaron tildes y mayúsculas, código y tipo, historial limitado a cinco, carga, filtros, formulario T06, cambio de estado, eliminación y móvil.
 
-Para reproducir con Microsoft Edge y Playwright instalado en un entorno de pruebas:
-
-```sh
-# Terminal 1
-npx ng serve --host 127.0.0.1 --port 4200
-# Terminal 2
-node scripts/verificar.cjs
-```
-
-`PLAYWRIGHT_MODULE` permite indicar un Playwright ya instalado. La prueba usa un contexto aislado sin la sesión personal del navegador.
+Para reproducir las pruebas, inicia la aplicación y sigue C1 a C9 en el orden indicado en `docs/casos-esperados.json`, partiendo de una recarga para que el contador esté en cero.
 
 ## Correspondencia con el enunciado
 
