@@ -1,0 +1,151 @@
+{
+  "fecha": "2026-11-11T05:41:55.238Z",
+  "casos": [
+    {
+      "caso": "C1",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "llamadas": 1
+    },
+    {
+      "caso": "C2",
+      "ids": [
+        1,
+        2,
+        3
+      ],
+      "llamadas": 2
+    },
+    {
+      "caso": "C3",
+      "ids": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "llamadas": 3
+    },
+    {
+      "caso": "C4",
+      "ids": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "llamadas": 3
+    },
+    {
+      "caso": "C5",
+      "ids": [],
+      "llamadas": 3
+    },
+    {
+      "caso": "C6",
+      "ids": [],
+      "llamadas": 4
+    },
+    {
+      "caso": "C7",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "llamadas": 5,
+      "estados": {
+        "Pendiente": [
+          1,
+          4,
+          7
+        ],
+        "En proceso": [
+          2,
+          5
+        ],
+        "Finalizada": [
+          3,
+          6
+        ]
+      }
+    },
+    {
+      "caso": "C8",
+      "ids": [
+        12
+      ],
+      "llamadas": 6
+    },
+    {
+      "caso": "C9",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "llamadas": 8,
+      "historial": [
+        "motor",
+        "mo",
+        "válvula",
+        "motor",
+        "zzz"
+      ]
+    }
+  ],
+  "adicionales": [
+    {
+      "texto": "VALVULA",
+      "ids": [
+        12
+      ]
+    },
+    {
+      "texto": "ANDRES",
+      "ids": [
+        1,
+        4,
+        11
+      ]
+    },
+    {
+      "texto": "EQ-012",
+      "ids": [
+        12
+      ]
+    },
+    {
+      "texto": "Predictivo",
+      "ids": [
+        3,
+        6,
+        10
+      ]
+    },
+    {
+      "caso": "CRUD",
+      "resultado": "cambio de estado y eliminación sin consultas nuevas"
+    },
+    {
+      "caso": "Formulario T06",
+      "resultado": "validación y registro de una orden, 13 tarjetas"
+    }
+  ],
+  "errores": []
+}
