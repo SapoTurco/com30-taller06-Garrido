@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { EstadoOrden } from './models/registro';
 import { RegistroService } from './services/registro.service';
+import { Buscador } from './buscador';
 import {
   minimoTareas,
   rangoFechas,
@@ -18,7 +19,7 @@ import {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ReactiveFormsModule, DecimalPipe],
+  imports: [ReactiveFormsModule, DecimalPipe, Buscador],
   template: `
     <main class="page-shell">
       <section class="hero" id="inicio">
@@ -27,6 +28,8 @@ import {
           <p class="hero-copy">Registra trabajos, organiza tareas y mantén cada equipo al día.</p>
         </div>
       </section>
+
+      <app-buscador />
 
       <div class="content-grid">
         <section class="panel form-panel" aria-labelledby="form-title">
