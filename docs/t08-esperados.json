@@ -1,0 +1,47 @@
+[
+  {
+    "caso": "C1",
+    "accion": "Abrir /",
+    "esperado": "Redirige a /ordenes. 12 órdenes; menú Órdenes activo."
+  },
+  {
+    "caso": "C2",
+    "accion": "Pulsar En proceso",
+    "esperado": "/ordenes?estado=En%20proceso. 3 órdenes: 2, 5 y 9."
+  },
+  {
+    "caso": "C3",
+    "accion": "Recargar C2 con F5",
+    "esperado": "Misma URL, 3 órdenes y filtro En proceso marcado."
+  },
+  {
+    "caso": "C4",
+    "accion": "Abrir /ordenes?estado=Cancelada",
+    "esperado": "0 órdenes. Mensaje No hay órdenes con ese estado mediante @empty."
+  },
+  {
+    "caso": "C5",
+    "accion": "Pulsar la orden 5 desde el listado",
+    "esperado": "/ordenes/5. EQ-005, Correctivo, Laura Gómez, En proceso. Detalle visible."
+  },
+  {
+    "caso": "C6",
+    "accion": "Abrir /ordenes/999",
+    "esperado": "No existe la orden 999 dentro del detalle; no muestra la vista 404."
+  },
+  {
+    "caso": "C7",
+    "accion": "Abrir /reportes",
+    "esperado": "Vista 404 con /reportes y enlace al listado."
+  },
+  {
+    "caso": "C8",
+    "accion": "Alta EQ-013, Preventivo, Daniel Torres, 2026-11-17 a 2026-11-18, Revisión del equipo de prueba, tarea Limpieza general de 2 h",
+    "esperado": "Navega a /ordenes/13. Total 13; Pendiente tiene 6 órdenes."
+  },
+  {
+    "caso": "C9",
+    "accion": "Abrir Estadísticas dos veces con F12 > Red JS, pasando por Órdenes",
+    "esperado": "Primera visita descarga un chunk JS diferido. Segunda visita no solicita ese chunk de nuevo."
+  }
+]

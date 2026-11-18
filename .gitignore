@@ -2,3 +2,10 @@
 dist
 node_modules
 .env
+
+# Evidencias e informes se entregan fuera del repositorio
+docs/evidencias/
+docs/informe/
+*.png
+*.docx
+*.pdf
