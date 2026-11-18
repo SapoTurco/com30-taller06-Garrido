@@ -26,14 +26,15 @@ export class RegistroService {
     });
   }
 
-  agregar(orden: Omit<OrdenMantenimiento, 'id' | 'estado' | 'creadaEn'>): void {
+  agregar(orden: Omit<OrdenMantenimiento, 'id' | 'estado' | 'creadaEn'>): OrdenMantenimiento {
     const nuevaOrden: OrdenMantenimiento = {
       ...orden,
-      id: Date.now() + Math.floor(Math.random() * 1000),
+      id: Math.max(0, ...this._ordenes().map(o => o.id)) + 1,
       estado: 'Pendiente',
       creadaEn: new Date().toISOString(),
     };
     this._ordenes.update((actuales) => [nuevaOrden, ...actuales]);
+    return nuevaOrden;
   }
 
   cambiarEstado(id: number, estado: EstadoOrden): void {

@@ -82,3 +82,5 @@ footer{border-color:var(--line)}
 .search-history li{background:#eef0f5;border-radius:4px;padding:8px 12px;font-size:13px}
 .history-empty{list-style:none;color:#595959}
 @media(max-width:650px){.search-panel{padding:18px 14px}.search-controls{grid-template-columns:1fr;gap:16px}.search-panel h2{font-size:19px}.results-table{min-width:760px}.search-summary{gap:10px 15px}}
+
+nav a,.filters a{color:var(--navy);text-decoration:none;padding:12px;border-radius:5px}nav a.active,.filters a.active{background:var(--yellow);font-weight:700}.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}.detail-panel{padding:28px}dt{font-weight:bold;margin-top:16px}dd{margin:5px 0}a{color:var(--navy)}
