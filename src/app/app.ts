@@ -7,6 +7,7 @@ import { isActive, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@a
       <a routerLink="/ordenes" [class.active]="ordenesActivas()" [attr.aria-current]="ordenesActivas() ? 'page' : null">Órdenes</a>
       <a routerLink="/ordenes/nueva" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" ariaCurrentWhenActive="page">Nueva orden</a>
       <a routerLink="/estadisticas" routerLinkActive="active" ariaCurrentWhenActive="page">Estadísticas</a>
+      <a routerLink="/parcial2" routerLinkActive="active" ariaCurrentWhenActive="page">Parcial 2</a>
     </nav>
   </div></header><router-outlet />`})
 export class App {

@@ -1,0 +1,84 @@
+<main class="page-shell">
+  <div class="hero"><h1>Solicitud del parcial 2</h1></div>
+  <form class="panel form-panel" [formGroup]="form" (ngSubmit)="enviar()"
+        (input)="confirmada.set(false)" novalidate>
+    <div class="field-grid">
+      <div class="field">
+        <label for="codigo">Código</label>
+        <input id="codigo" formControlName="codigo" placeholder="AB123" required
+               aria-describedby="codigo-errores">
+        <div id="codigo-errores" aria-live="polite">
+          @if (mostrarErrores('codigo')) {
+            @if (form.controls.codigo.hasError('required')) {
+              <div class="error">Ingresa el código.</div>
+            }
+            @if (form.controls.codigo.hasError('pattern')) {
+              <div class="error">Usa dos letras mayúsculas y tres dígitos.</div>
+            }
+          }
+        </div>
+      </div>
+      <div class="field">
+        <label for="cantidad">Cantidad</label>
+        <input id="cantidad" formControlName="cantidad" inputmode="numeric" required
+               aria-describedby="cantidad-errores">
+        <div id="cantidad-errores" aria-live="polite">
+          @if (mostrarErrores('cantidad')) {
+            @if (form.controls.cantidad.hasError('required')) {
+              <div class="error">Ingresa la cantidad.</div>
+            } @else if (form.controls.cantidad.hasError('pattern')) {
+              <div class="error">Ingresa un número.</div>
+            } @else {
+              @if (form.controls.cantidad.hasError('min')) {
+                <div class="error">La cantidad debe ser al menos 1.</div>
+              }
+              @if (form.controls.cantidad.hasError('max')) {
+                <div class="error">La cantidad no puede superar {{ tope }}.</div>
+              }
+              @if (form.controls.cantidad.hasError('multiplo')) {
+                <div class="error">La cantidad debe ser múltiplo de {{ m }}.</div>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="field">
+        <label for="desde">Desde</label>
+        <input id="desde" formControlName="desde" inputmode="decimal" required
+               aria-describedby="desde-errores">
+        <div id="desde-errores" aria-live="polite">
+          @if (mostrarErrores('desde')) {
+            @if (form.controls.desde.hasError('required')) {
+              <div class="error">Ingresa el valor inicial.</div>
+            }
+            @if (form.controls.desde.hasError('pattern')) {
+              <div class="error">Ingresa un número.</div>
+            }
+          }
+        </div>
+      </div>
+      <div class="field">
+        <label for="hasta">Hasta</label>
+        <input id="hasta" formControlName="hasta" inputmode="decimal" required
+               aria-describedby="hasta-errores">
+        <div id="hasta-errores" aria-live="polite">
+          @if (mostrarErrores('hasta')) {
+            @if (form.controls.hasta.hasError('required')) {
+              <div class="error">Ingresa el valor final.</div>
+            }
+            @if (form.controls.hasta.hasError('pattern')) {
+              <div class="error">Ingresa un número.</div>
+            }
+            @if (form.hasError('hastaMayor')) {
+              <div class="error">Hasta debe ser mayor que desde.</div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button class="primary-button" type="submit">Enviar solicitud</button>
+      <div role="status">@if (confirmada()) { Solicitud válida. }</div>
+    </div>
+  </form>
+</main>
