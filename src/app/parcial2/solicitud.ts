@@ -1,10 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BusquedaOrdenes } from './busqueda-ordenes';
+import { M, PATRON_CODIGO, TOPE } from './parametros';
 import { hastaMayor, multiploDe } from './validadores';
 
-const M = 4;
-const TOPE = 24;
 const numero = Validators.pattern(/^-?(?:\d+(?:\.\d+)?|\.\d+)$/);
 
 @Component({
@@ -14,11 +14,11 @@ const numero = Validators.pattern(/^-?(?:\d+(?:\.\d+)?|\.\d+)$/);
 })
 export class Solicitud {
   private readonly fb = inject(FormBuilder).nonNullable;
+  private readonly router = inject(Router);
   readonly m = M;
   readonly tope = TOPE;
-  readonly confirmada = signal(false);
   readonly form = this.fb.group({
-    codigo: ['', [Validators.required, Validators.pattern(/^[A-Z]{2}[0-9]{3}$/)]],
+    codigo: ['', [Validators.required, Validators.pattern(PATRON_CODIGO)]],
     cantidad: ['', [Validators.required, numero, Validators.min(1), Validators.max(TOPE), multiploDe(M)]],
     desde: ['', [Validators.required, numero]],
     hasta: ['', [Validators.required, numero]],
@@ -35,6 +35,9 @@ export class Solicitud {
       return;
     }
 
-    this.confirmada.set(true);
+    const { codigo, cantidad } = this.form.getRawValue();
+    void this.router.navigate(['/parcial2', 'detalle', codigo], {
+      queryParams: { cantidad: Number(cantidad) },
+    });
   }
 }

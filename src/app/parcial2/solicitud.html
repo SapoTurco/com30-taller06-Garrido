@@ -1,7 +1,6 @@
 <main class="page-shell">
   <div class="hero"><h1>Solicitud del parcial 2</h1></div>
-  <form class="panel form-panel" [formGroup]="form" (ngSubmit)="enviar()"
-        (input)="confirmada.set(false)" novalidate>
+  <form class="panel form-panel" [formGroup]="form" (ngSubmit)="enviar()" novalidate>
     <div class="field-grid">
       <div class="field">
         <label for="codigo">Código</label>
@@ -78,7 +77,6 @@
     </div>
     <div class="form-footer">
       <button class="primary-button" type="submit">Enviar solicitud</button>
-      <div role="status">@if (confirmada()) { Solicitud válida. }</div>
     </div>
   </form>
   <app-busqueda-ordenes />

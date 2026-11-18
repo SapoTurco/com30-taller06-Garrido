@@ -10,5 +10,6 @@ export const routes: Routes = [
   {path: 'ordenes/:id', component: Detalle, title: 'Detalle de la orden'},
   {path: 'estadisticas', loadComponent: () => import('./estadisticas').then(m => m.Estadisticas), title: 'Estadísticas'},
   {path: 'parcial2', loadComponent: () => import('./parcial2/solicitud').then(m => m.Solicitud), title: 'Solicitud del parcial 2'},
+  {path: 'parcial2/detalle/:codigo', loadComponent: () => import('./parcial2/detalle-solicitud').then(m => m.DetalleSolicitud), title: 'Detalle de la solicitud'},
   {path: '**', component: NoEncontrada, title: 'Página no encontrada'}
 ];
