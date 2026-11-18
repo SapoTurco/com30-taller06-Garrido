@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { BusquedaOrdenes } from './busqueda-ordenes';
 import { hastaMayor, multiploDe } from './validadores';
 
 const M = 4;
@@ -8,7 +9,7 @@ const numero = Validators.pattern(/^-?(?:\d+(?:\.\d+)?|\.\d+)$/);
 
 @Component({
   selector: 'app-solicitud',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, BusquedaOrdenes],
   templateUrl: './solicitud.html',
 })
 export class Solicitud {
