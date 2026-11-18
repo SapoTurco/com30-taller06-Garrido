@@ -7,7 +7,6 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { EstadoOrden } from './models/registro';
 import { RegistroService } from './services/registro.service';
 import {
   minimoTareas,
@@ -74,6 +73,7 @@ import {
                 <label for="descripcion">Descripción del trabajo o la falla <b>*</b></label>
                 <textarea id="descripcion" rows="3" formControlName="descripcion" placeholder="Describe el trabajo que se realizará"></textarea>
                 @if (mostrarError('descripcion', 'required')) { <small class="error">Escribe una descripción.</small> }
+                @else if (mostrarError('descripcion', 'soloEspacios')) { <small class="error">La descripción no puede contener solo espacios.</small> }
                 @else if (mostrarError('descripcion', 'minlength')) { <small class="error">La descripción debe tener al menos 10 caracteres.</small> }
               </div>
             </div>
@@ -87,6 +87,7 @@ import {
                     <label [for]="'tarea-' + i">Descripción de la tarea <b>*</b></label>
                     <input [id]="'tarea-' + i" type="text" formControlName="descripcion" placeholder="Ej. Limpieza interna" />
                     @if (errorTarea(i, 'descripcion', 'required')) { <small class="error">Este campo es obligatorio.</small> }
+                    @else if (errorTarea(i, 'descripcion', 'soloEspacios')) { <small class="error">La tarea no puede contener solo espacios.</small> }
                     @else if (errorTarea(i, 'descripcion', 'minlength')) { <small class="error">Escribe al menos 5 caracteres.</small> }
                   </div>
                   <div class="field task-hours">
@@ -128,7 +129,7 @@ export class Alta {
       tecnico: ['', [Validators.required, Validators.minLength(5), sinSoloEspacios()]],
       fechaInicio: ['', Validators.required],
       fechaFin: ['', Validators.required],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]],
+      descripcion: ['', [Validators.required, Validators.minLength(10), sinSoloEspacios()]],
       tareas: this.fb.array<FormGroup>([this.crearTarea()], {
         validators: [minimoTareas(1)],
       }),
@@ -142,7 +143,7 @@ export class Alta {
 
   private crearTarea(): FormGroup {
     return this.fb.group({
-      descripcion: ['', [Validators.required, Validators.minLength(5)]],
+      descripcion: ['', [Validators.required, Validators.minLength(5), sinSoloEspacios()]],
       horasEstimadas: [1, [Validators.required, Validators.min(1)]],
     });
   }
@@ -195,20 +196,4 @@ export class Alta {
     this.tareas.push(this.crearTarea());
   }
 
-  actualizarEstado(id: number, evento: Event): void {
-    const estado = (evento.target as HTMLSelectElement).value as EstadoOrden;
-    this.registro.cambiarEstado(id, estado);
-  }
-
-  eliminar(id: number): void {
-    this.registro.eliminar(id);
-  }
-
-  contarEstado(estado: EstadoOrden): number {
-    return this.registro.ordenes().filter((orden) => orden.estado === estado).length;
-  }
-
-  totalHoras(tareas: { horasEstimadas: number }[]): number {
-    return tareas.reduce((total, tarea) => total + tarea.horasEstimadas, 0);
-  }
 }

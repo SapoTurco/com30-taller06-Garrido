@@ -23,7 +23,7 @@ Abrir http://localhost:4200. Los datos viven en memoria: F5 restaura la semilla.
 | /estadisticas | Estadisticas | loadComponent e import dinámico |
 | ** | NoEncontrada | router.url y enlace de regreso |
 
-La ruta nueva aparece antes de :id y el comodín es el último. Cada ruta tiene title. El menú usa routerLink y routerLinkActive; Nueva orden tiene exact: true y Órdenes permanece activo en detalles, sin activarse en el alta. Se retiró Inicio a petición del usuario porque repetía el listado. Hay un solo router-outlet. La consulta está antes del listado. Estadísticas mantiene loadComponent y muestra conteos, porcentajes, horas y tipos calculados desde el servicio con signal.
+La ruta nueva aparece antes de :id y el comodín es el último. Cada ruta tiene title. El menú usa routerLink y routerLinkActive; el logo enlaza al inicio con exact: true. Nueva orden también tiene exact: true y Órdenes permanece activo en detalles, sin activarse en el alta. Se retiró la opción Inicio a petición del usuario porque repetía el listado. Hay un solo router-outlet. La consulta está antes del listado. Estadísticas mantiene loadComponent y muestra conteos, porcentajes, horas y tipos calculados desde el servicio con signal.
 
 ## Nueve casos y validación
 
